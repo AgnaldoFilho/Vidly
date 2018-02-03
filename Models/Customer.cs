@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public class Customer : IEnumerable
+    public class Customer // : IEnumerable
     {
         public int Id { get; set; }
 
@@ -26,9 +26,9 @@ namespace Vidly.Models
         [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
 
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerator GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

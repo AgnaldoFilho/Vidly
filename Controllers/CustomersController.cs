@@ -9,11 +9,11 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        private MyDbContext _context;
+        private ApplicationDbContext _context;
 
         public CustomersController()
         {
-            _context = new MyDbContext();
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
@@ -44,7 +44,7 @@ namespace Vidly.Controllers
                 };
                 return View("CustomerForm", viewModel);
             }
-            
+
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -66,9 +66,9 @@ namespace Vidly.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)
